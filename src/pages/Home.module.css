@@ -1,0 +1,22 @@
+main {
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+
+    
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.teamList {
+    width: 80%;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    
+}

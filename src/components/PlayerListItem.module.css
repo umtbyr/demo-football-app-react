@@ -1,0 +1,18 @@
+
+.listItemContainer {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.listItemContainer img {
+    width: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    margin: 0.25rem;
+}
+
+.listItemContainer p {
+    margin: 1rem;
+}

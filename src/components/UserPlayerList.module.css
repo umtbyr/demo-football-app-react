@@ -1,0 +1,28 @@
+
+
+.userPlayerList {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.userPlayerList li {
+    margin: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.75);
+}
+
+.userPlayerList li:hover {
+    box-shadow: 4px 0 8px rgba(236, 4, 4, 0.75);
+    animation: listItemHover ease-out 0.5s 1 alternate forwards;
+}
+
+@keyframes listItemHover {
+    0% {
+        transform:  translateY(0);
+    }
+    100% {
+        transform: translateY(-10%);
+    }
+}

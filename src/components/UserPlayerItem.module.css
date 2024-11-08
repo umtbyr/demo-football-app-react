@@ -1,0 +1,22 @@
+.playercontainer {
+    cursor: pointer;
+    height: 250px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    display: grid;
+    border: 1px solid black;
+    grid-template-columns: auto 30%;
+    grid-template-areas:
+        "img img"
+        "name name";
+}
+
+.playerimg {
+    grid-area: img;
+    justify-self: center;
+}
+
+.playername {
+    grid-area: name;
+    justify-self: center;
+}

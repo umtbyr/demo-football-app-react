@@ -1,0 +1,25 @@
+.teamcontainer {
+    cursor: pointer;
+    height: 250px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    display: grid;
+    border: 1px solid black;
+    grid-template-columns: auto 30%;
+    grid-template-areas:
+        "img img"
+        "name info";
+}
+
+.teamimg {
+    grid-area: img;
+    justify-self: center;
+}
+
+.teamname {
+    grid-area: name;
+}
+
+.teaminfo {
+    grid-area: info;
+}

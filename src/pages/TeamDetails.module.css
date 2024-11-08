@@ -1,0 +1,28 @@
+.mainContentContainer {
+    height: 100vh;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 30% 70%;
+    grid-template-areas:
+        "header header"
+        "players playerInfo"
+        "players playerInfo"
+        "players playerInfo"
+        "players playerInfo"
+        "players playerInfo";
+}
+
+.header {
+    grid-area: header;
+    
+    
+}
+
+.players {
+    grid-area: players;
+    
+}
+.playerInfo {
+    grid-area: playerInfo;
+    
+}
