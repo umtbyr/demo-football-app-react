@@ -12,6 +12,7 @@ const UserPlayerList: React.FC<Props> = () => {
     return (
         <div className={classes.container}>
             <h1>Create Your dream team!</h1>
+            <h3>Search all teams around the world and start your journey! </h3>
             <ul className={classes.userPlayerList}>
                 {userPlayerList.map((player) => (
                     <li key={player.id}>

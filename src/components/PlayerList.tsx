@@ -1,30 +1,14 @@
 import React from "react";
 import PlayerListItem from "./PlayerListItem";
-import classes from "./PlayerList.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router";
 import { getTeamPlayersAndStatistics } from "../http";
-type PlayerListPrpos = {
-    children?: React.ReactNode;
-};
+import ListRenderer from "./UI/ListRenderer";
+import { ResponseData, PlayerListPrpos } from "../types";
+import { useSetPlayerToList } from "../hooks";
 
-type Player = {
-    name: string;
-    age: number;
-    photo: string;
-    id: number;
-};
-
-type ResponseItem = {
-    player: Player;
-};
-
-type ResponseData = {
-    response: ResponseItem[];
-};
 const PlayerList: React.FC<PlayerListPrpos> = () => {
     const { teamId } = useParams();
-
     const { data } = useQuery<ResponseData>({
         queryKey: ["players-statistics", teamId],
         queryFn: () => getTeamPlayersAndStatistics(teamId as string),
@@ -33,20 +17,23 @@ const PlayerList: React.FC<PlayerListPrpos> = () => {
 
     const PlayerList = data?.response || [];
 
+    const addPlayerFn = useSetPlayerToList();
+
     return (
-        <ul className={classes.list}>
-            {PlayerList.map((item, index) => (
-                <li key={item.player.id}>
-                    <PlayerListItem
-                        id={item.player.id}
-                        index={index}
-                        playerName={item.player.name}
-                        playerAge={item.player.age}
-                        playerImg={item.player.photo}
-                    />
-                </li>
-            ))}
-        </ul>
+        <ListRenderer
+            keyExtractor={(item) => item.player.id}
+            data={PlayerList}
+            renderFunction={(player, index) => (
+                <PlayerListItem
+                    onClickFn={addPlayerFn}
+                    id={player.player.id}
+                    index={index}
+                    playerName={player.player.name}
+                    playerAge={player.player.age}
+                    playerImg={player.player.photo}
+                />
+            )}
+        />
     );
 };
 

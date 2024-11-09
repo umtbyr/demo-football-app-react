@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { Player } from "../types";
+import UserPlayerList from "../components/UserPlayerList";
 type SearchStore = {
     searchData: string;
     currentTeamLogo: string | null;
@@ -16,7 +17,10 @@ type SearchStore = {
 
 export const useSearchStore = create<SearchStore>((set) => ({
     searchData: "",
-    userPlayerList: [],
+    userPlayerList:
+        localStorage.getItem("playerlist") !== undefined
+            ? JSON.parse(localStorage.getItem("playerlist") || "[]")
+            : [],
     playerIndex: null,
     currentTeamLogo: null,
     currentTeamName: null,
@@ -24,12 +28,28 @@ export const useSearchStore = create<SearchStore>((set) => ({
     setPlayerIndexData: (data) => set({ playerIndex: data }),
     setSearchData: (data) => set({ searchData: data }),
     setTeamLogo: (data) => set({ currentTeamLogo: data }),
-    addPlayerToPlayerList: (player) =>
-        set((state) => ({ userPlayerList: [player, ...state.userPlayerList] })),
-    removePlayerFromPlayerList: (id) =>
-        set((state) => ({
-            userPlayerList: state.userPlayerList.filter(
+    addPlayerToPlayerList: (player) => {
+        set((state) => {
+            const updatedPlayerList = [player, ...state.userPlayerList];
+            localStorage.setItem(
+                "playerlist",
+                JSON.stringify(updatedPlayerList)
+            );
+            return { userPlayerList: updatedPlayerList };
+        });
+    },
+    removePlayerFromPlayerList: (id) => {
+        set((state) => {
+            const updatedPlayerList = state.userPlayerList.filter(
                 (player) => player.id !== id
-            ),
-        })),
+            );
+            localStorage.setItem(
+                "playerlist",
+                JSON.stringify(updatedPlayerList)
+            );
+            return {
+                userPlayerList: updatedPlayerList,
+            };
+        });
+    },
 }));

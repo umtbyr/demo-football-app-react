@@ -4,3 +4,17 @@ export type Player = {
     photo: string;
     id: number;
 };
+
+
+export type PlayerListPrpos = {
+    children?: React.ReactNode;
+};
+
+
+export type ResponseItem = {
+    player: Player;
+};
+
+export type ResponseData = {
+    response: ResponseItem[];
+};

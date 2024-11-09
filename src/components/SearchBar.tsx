@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { getTeams } from "../http";
 import { useSearchStore } from "../store/store";
+
 const SearchBar: React.FC = () => {
     const initialSearch = useSearchStore((state) => state.searchData);
     const [search, setSearch] = useState<string>(initialSearch);

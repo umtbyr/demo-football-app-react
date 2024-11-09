@@ -3,6 +3,7 @@ import classes from "./TeamDetailsHeader.module.css";
 import { useSearchStore } from "../store/store";
 import PlayerBasketItem from "./PlayerBasketItem";
 import { useNavigate } from "react-router";
+import Button from "./UI/Button";
 type Props = {
     children?: React.ReactNode;
     className: string;
@@ -23,7 +24,7 @@ const TeamDeatailsHeader: React.FC<Props> = ({ className }) => {
             <div className={classes.playerCounterContainer}>
                 <ul>
                     {userPlayerList.map((player) => (
-                        <li>
+                        <li key={player.id}>
                             <PlayerBasketItem photo={player.photo} />
                         </li>
                     ))}
@@ -41,7 +42,7 @@ const TeamDeatailsHeader: React.FC<Props> = ({ className }) => {
                     alt="team-logo"
                 />
             </div>
-            <button onClick={handleHomeButton}>HOME</button>
+            <Button onClickFn={handleHomeButton}>Home</Button>
         </header>
     );
 };
