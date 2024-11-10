@@ -1,10 +1,11 @@
-
 .listItemContainer {
-
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    
+}
+
+.isActive {
+    background-color:  rgba(18, 237, 22, 0.15);
 }
 
 .listItemContainer img {

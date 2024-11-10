@@ -1,5 +1,7 @@
 import classes from "./PlayerListItem.module.css";
-import { Player } from "../types";
+import classNames from "classnames";
+import { useContext, useState } from "react";
+import { formationContext } from "../pages/CreateFormation";
 type PlayerListItemProps = {
     children?: React.ReactNode;
     playerName: string;
@@ -7,24 +9,30 @@ type PlayerListItemProps = {
     playerAge: number;
     index: number;
     id: number;
-    onClickFn: (player: Player, index: number) => void;
 };
 
 const PlayerListItem: React.FC<PlayerListItemProps> = (props) => {
+    const { setSelectedPlayer, selectedPlayersId, setSelectedPlayersId } =
+        useContext(formationContext);
+
+    const playerIsSelected = selectedPlayersId === props.id;
+
+    const onClickHanlder = () => {
+        setSelectedPlayersId(props.id);
+        setSelectedPlayer({
+            name: props.playerName,
+            age: props.playerAge,
+            photo: props.playerImg,
+            id: props.id,
+        });
+    };
+
     return (
         <div
-            className={classes.listItemContainer}
-            onClick={() =>
-                props.onClickFn(
-                    {
-                        name: props.playerName,
-                        age: props.playerAge,
-                        photo: props.playerImg,
-                        id: props.id,
-                    },
-                    props.index
-                )
-            }
+            className={classNames(classes.listItemContainer, {
+                [classes.isActive]: playerIsSelected,
+            })}
+            onClick={onClickHanlder}
         >
             <img src={props.playerImg} alt="player-image" />
             <h4>{props.playerName}</h4>

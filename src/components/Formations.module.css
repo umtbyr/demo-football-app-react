@@ -9,6 +9,7 @@
 .formationsList li {
     margin: 1rem;
     border: 1px solid rgba(0, 0, 0, 0.75);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.75);
     padding: 1rem;
     border-radius: 40px;
     cursor: pointer;
@@ -42,6 +43,10 @@
 
 .formationsList li:nth-child(5) {
     animation-delay: 0.8s;
+}
+
+.formationsList li:nth-child(6) {
+    animation-delay: 1s;
 }
 
 .formationsList li:hover,
