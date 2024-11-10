@@ -2,6 +2,7 @@ import classes from "./PlayerListItem.module.css";
 import classNames from "classnames";
 import { useContext, useState } from "react";
 import { formationContext } from "../pages/CreateFormation";
+import { Player } from "../types";
 type PlayerListItemProps = {
     children?: React.ReactNode;
     playerName: string;
@@ -9,6 +10,7 @@ type PlayerListItemProps = {
     playerAge: number;
     index: number;
     id: number;
+    onClickFn?: (player: Player, index: number) => void;
 };
 
 const PlayerListItem: React.FC<PlayerListItemProps> = (props) => {
@@ -25,6 +27,17 @@ const PlayerListItem: React.FC<PlayerListItemProps> = (props) => {
             photo: props.playerImg,
             id: props.id,
         });
+        if (props.onClickFn) {
+            props.onClickFn(
+                {
+                    name: props.playerName,
+                    age: props.playerAge,
+                    photo: props.playerImg,
+                    id: props.id,
+                } as Player,
+                props.index
+            );
+        }
     };
 
     return (
