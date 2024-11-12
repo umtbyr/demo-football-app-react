@@ -2,13 +2,13 @@ import { create } from "zustand";
 import { Player } from "../types";
 import UserPlayerList from "../components/UserPlayerList";
 type SearchStore = {
-    searchData: string;
+    searchData: string | ArrayLike<unknown>;
     currentTeamLogo: string | null;
     currentTeamName: string | null;
     playerIndex: number | null;
     setTeamLogo: (data: string) => void;
     setTeamName: (data: string) => void;
-    setSearchData: (data: string) => void;
+    setSearchData: (data: string | ArrayLike<unknown>) => void;
     setPlayerIndexData: (data: number) => void;
     addPlayerToPlayerList: (player: Player) => void;
     removePlayerFromPlayerList: (id: number) => void;

@@ -2,7 +2,7 @@ import { QueryClient } from "@tanstack/react-query";
 const apiKey = import.meta.env.VITE_API_KEY;
 export const queryClient = new QueryClient();
 
-export const getTeams = async (teams: string) => {
+export const getTeams = async <T extends ArrayLike<unknown>>(teams: T) => {
     if (teams.length < 2) {
         return null;
     }
