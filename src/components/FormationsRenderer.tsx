@@ -4,9 +4,9 @@ import FormationItem from "./FormationItem";
 import { formations } from "../formations";
 import { useContext } from "react";
 import { formationContext } from "../pages/CreateFormation";
+
 type Props = {
     chlidren?: React.ReactNode;
-    //formation: string;
 };
 
 const FormationsRenderer: React.FC<Props> = () => {

@@ -8,18 +8,12 @@ import { Player } from "../types";
 import { useState } from "react";
 import { createContext } from "react";
 import { formationType } from "../types";
+import { FormationContextType } from "../types";
 type Props = {
     children?: React.ReactNode;
 };
 
-interface FormationContextType {
-    selectedPlayer: Player | undefined;
-    setSelectedPlayer: (player: Player | undefined) => void;
-    formationType: formationType;
-    setFormationType: (formation: formationType) => void;
-    selectedPlayersId: number | null;
-    setSelectedPlayersId: (id: number) => void;
-}
+
 
 export const formationContext = createContext<FormationContextType>({
     selectedPlayer: undefined,

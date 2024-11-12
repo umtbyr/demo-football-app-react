@@ -1,6 +1,6 @@
 import classes from "./PlayerListItem.module.css";
 import classNames from "classnames";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { formationContext } from "../pages/CreateFormation";
 import { Player } from "../types";
 type PlayerListItemProps = {

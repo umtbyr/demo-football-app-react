@@ -30,7 +30,6 @@ const FormationItem: React.FC<Props> = ({ index, position }) => {
 
         if (isSelectiable) {
             setIsSelectiable(false);
-            console.log(selectedPlayer);
             setSelectedPlayerOfItem(selectedPlayer);
             setSelectedPlayer(undefined);
         } else {
