@@ -19,9 +19,11 @@ const Layout: React.FC = () => {
                 }`}
             >
                 <SearchBar></SearchBar>
-                <Button onClickFn={handleCreateFormationBtn}>
-                    Create formation
-                </Button>
+                <div className={classes.mainBtn}>
+                    <Button onClickFn={handleCreateFormationBtn}>
+                        Create formation
+                    </Button>
+                </div>
             </header>
             <Outlet />
         </>

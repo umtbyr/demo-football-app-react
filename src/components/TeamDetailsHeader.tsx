@@ -42,7 +42,9 @@ const TeamDeatailsHeader: React.FC<Props> = ({ className }) => {
                     alt="team-logo"
                 />
             </div>
-            <Button onClickFn={handleHomeButton}>Home</Button>
+            <div className={classes.mainheaderBtn}>
+                <Button onClickFn={handleHomeButton}>Home</Button>
+            </div>
         </header>
     );
 };

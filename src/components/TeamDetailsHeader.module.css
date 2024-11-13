@@ -50,6 +50,10 @@
     width: 100px;
 }
 
+.mainheaderBtn{
+    margin-right: 4rem;
+}
+
 .imageContainer {
     padding: 1rem;
     width: auto;

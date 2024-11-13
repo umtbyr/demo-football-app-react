@@ -6,7 +6,7 @@
     grid-template-rows: auto 1fr;
     grid-template-columns: 1fr 2fr;
     grid-template-areas:
-        "header header header"
+        "header1 header header"
         "players formation formation"
         "players formation formation"
         "players formation formation";
@@ -15,8 +15,25 @@
 .headerSection {
     grid-area: header;
     background-color: rgb(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
 }
 
+.homeBtn {
+    margin-top: 4rem;
+    width: 40%;
+}
+
+.homeButtonContainer {
+    background-color: rgb(0, 0, 0, 0.1);
+    grid-area: header1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+}
 .playerListSection {
     grid-area: players;
 }

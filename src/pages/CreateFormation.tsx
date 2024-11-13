@@ -9,11 +9,11 @@ import { useState } from "react";
 import { createContext } from "react";
 import { formationType } from "../types";
 import { FormationContextType } from "../types";
+import { Navigate, useNavigate } from "react-router";
+import Button from "../components/UI/Button";
 type Props = {
     children?: React.ReactNode;
 };
-
-
 
 export const formationContext = createContext<FormationContextType>({
     selectedPlayer: undefined,
@@ -25,6 +25,7 @@ export const formationContext = createContext<FormationContextType>({
 });
 
 const CreateFormation: React.FC<Props> = (props) => {
+    const navigate = useNavigate();
     const playerList = useSearchStore((state) => state.userPlayerList);
     const [selectedPlayer, setSelectedPlayer] = useState<Player | undefined>(
         undefined
@@ -44,6 +45,17 @@ const CreateFormation: React.FC<Props> = (props) => {
     return (
         <formationContext.Provider value={formationCtxValue}>
             <main className={classes.container}>
+                <div className={classes.homeButtonContainer}>
+                    <div className={classes.homeBtn}>
+                        <Button
+                            onClickFn={() => {
+                                navigate("/");
+                            }}
+                        >
+                            Home
+                        </Button>
+                    </div>
+                </div>
                 <section className={classes.headerSection}>
                     <header>
                         <Formations />
